@@ -42,9 +42,13 @@ namespace projListaLivros {
             return qtde;
         }
         public int qtdeEmprestimos() {
+            if (qtdeExemplares() == 0 || qtdeExemplares() == null)
+                return 0;
             return Exemplares[Isbn - 1].qtdeEmprestimos();
         }
         public double percDisponibilidade() {
+            if (qtdeExemplares() == 0 || qtdeExemplares() == null)
+                return 0;
             return (qtdeDisponiveis() * 100) / Exemplares.Count;
         }
 

@@ -107,7 +107,10 @@ namespace projListaLivros {
             Console.Write("Digite o isbn do livro: ");
             isbn = int.Parse(Console.ReadLine());
 
-            Console.WriteLine( 
+            if(livros.Acervo[isbn - 1].qtdeExemplares() == 0) {
+                Console.WriteLine("Nenhum exemplar deste livro foi registrado!");
+            } else {
+                Console.WriteLine(
                 "Titulo: " + livros.Acervo[isbn - 1].Titulo +
                 "\nAutor: " + livros.Acervo[isbn - 1].Autor +
                 "\nEditora: " + livros.Acervo[isbn - 1].Editora +
@@ -116,6 +119,8 @@ namespace projListaLivros {
                 "\nEmprestimos: " + livros.Acervo[isbn - 1].qtdeEmprestimos() +
                 "\nDisponibilidade: " + livros.Acervo[isbn - 1].percDisponibilidade() + "%"
                 );
+            }
+            
         }
         private void pesquisaLivroAnalitico() {
             int isbn;
@@ -123,7 +128,10 @@ namespace projListaLivros {
             Console.Write("Digite o isbn do livro: ");
             isbn = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(
+            if (livros.Acervo[isbn - 1].qtdeExemplares() == 0) {
+                Console.WriteLine("Nenhum exemplar deste livro foi registrado!");
+            } else {
+                Console.WriteLine(
                 "Titulo: " + livros.Acervo[isbn - 1].Titulo +
                 "\nAutor: " + livros.Acervo[isbn - 1].Autor +
                 "\nEditora: " + livros.Acervo[isbn - 1].Editora +
@@ -133,7 +141,7 @@ namespace projListaLivros {
                 "\nDisponibilidade: " + livros.Acervo[isbn - 1].percDisponibilidade() + "%" +
                 "\nExemplares:"
                 );
-            // livros.Acervo[isbn].Exemplares[0].Emprestimos
+
                 foreach (Exemplar ex in livros.Acervo[isbn - 1].Exemplares) {
                     // Tombo do Exemplar
                     Console.WriteLine(
@@ -146,19 +154,21 @@ namespace projListaLivros {
                     Console.WriteLine("\t - Nº de emprestimos: " + ex.Emprestimos.Count);
 
                     // Emprestimos realizados do Exemplar
-                    foreach(Emprestimo emprestimo in ex.Emprestimos) {
-                        
-                    if (emprestimo.DtDevolucao.Equals(new DateTime(01, 01, 0001, 00, 00, 00)))
-                        Console.WriteLine(
-                            "\t - Data de empréstimo: " + emprestimo.DtEmprestimo.ToString() +
-                            " | Data de devolução: Pendente"
-                            );
-                    else
-                        Console.WriteLine(
-                            "\t - Data de empréstimo: " + emprestimo.DtEmprestimo.ToString() +
-                            " | Data de devolução: " + emprestimo.DtDevolucao.ToString()
-                            );
+                    foreach (Emprestimo emprestimo in ex.Emprestimos) {
+
+                        if (emprestimo.DtDevolucao.Equals(new DateTime(01, 01, 0001, 00, 00, 00)))
+                            Console.WriteLine(
+                                "\t - Data de empréstimo: " + emprestimo.DtEmprestimo.ToString() +
+                                " | Data de devolução: Pendente"
+                                );
+                        else
+                            Console.WriteLine(
+                                "\t - Data de empréstimo: " + emprestimo.DtEmprestimo.ToString() +
+                                " | Data de devolução: " + emprestimo.DtDevolucao.ToString()
+                                );
+                    }
                 }
+ 
             }
         }
         private void adicionaExemplar() {
