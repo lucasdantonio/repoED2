@@ -18,21 +18,22 @@ namespace projListaLivros {
         }
 
         public bool emprestar() {
-            //if (emprestimos[qtdeEmprestimos()].DtDevolucao == null) return false;
-
-            Emprestimos.Add(new Emprestimo(DateTime.Now));
-            return true;
+            if (qtdeEmprestimos() == 0 || Emprestimos[qtdeEmprestimos() - 1].DtDevolucao != new DateTime(01, 01, 0001, 00, 00, 00)) {
+                Emprestimos.Add(new Emprestimo(DateTime.Now));
+                return true;
+            }
+               
+            return false;
         }
         public bool devolver() {
-            if (Emprestimos[qtdeEmprestimos() - 1].DtEmprestimo == null) return false;
+            if (Emprestimos[qtdeEmprestimos() - 1].DtEmprestimo == new DateTime(01, 01, 0001, 00, 00, 00)) return false;
 
             Emprestimos[qtdeEmprestimos() - 1].DtDevolucao = DateTime.Now;
             return true;
         }
         public bool disponivel() {
-            //if (Emprestimos[qtdeEmprestimos() - 1].DtDevolucao != null) return true;
-
-            return true;
+            if (Emprestimos[qtdeEmprestimos() - 1].DtDevolucao != new DateTime(01,01,0001,00,00,00)) return true;
+            return false;
         }
         public int qtdeEmprestimos() {
             if(Emprestimos == null) return 0;
