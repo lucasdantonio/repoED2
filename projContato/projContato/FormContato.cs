@@ -15,6 +15,8 @@ namespace projContato {
         Contatos lista;
         FormLista frmLista;
 
+        public DataGridView dataGridViewFones2;
+
         public FormContato() {
             InitializeComponent();
 
@@ -41,11 +43,9 @@ namespace projContato {
 
                 textBoxEmail.Text = contato.Email;
                 textBoxNome.Text = contato.Nome;
-                atualizaGrid();
-
-                //for (int i = 0; i < contato.Fones.Count; i++) {
-                //    dataGridViewFones.Rows.Add(contato.Fones[i].Numero, contato.Fones[i].Tipo);
-                //}
+                for (int i = 0; i < contato.Fones.Count; i++) {
+                    dataGridViewFones.Rows.Add(contato.Fones[i].Numero, contato.Fones[i].Tipo);
+                }
             } else {
                 MsgBox("Erro", "Contato não encontrado");
             }
@@ -57,10 +57,8 @@ namespace projContato {
             if(textBoxNumero.Text.Equals("")) {
                 MsgBox("Atenção", "Campo número vazio");
             } else {
-                //dataGridViewFones.Rows.Add(textBoxNumero.Text, comboBoxTipo.SelectedItem);
+                dataGridViewFones.Rows.Add(textBoxNumero.Text, comboBoxTipo.SelectedItem);
                 contato.adicionarFone(new Fone(textBoxNumero.Text, comboBoxTipo.Text));
-                atualizaGrid();
-
                 this.Size = new System.Drawing.Size(344, 427);
                 LimparForm(2);
             }
@@ -115,9 +113,6 @@ namespace projContato {
             if (dataGridViewFones.Rows.Count >= 1) {
                 if (dataGridViewFones.Rows[dataGridViewFones.CurrentRow.Index].IsNewRow != true) {
                     dataGridViewFones.Rows.Remove(dataGridViewFones.CurrentRow);
-
-                    contato.removerFone();
-
                 }
             } else {
                 MsgBox("Erro", "Selecione um telefone");
@@ -138,13 +133,6 @@ namespace projContato {
         private void ButtonAbrirLista_Click(object sender, EventArgs e) {
             frmLista = new FormLista(lista);
             frmLista.Show();
-        }
-
-        private void atualizaGrid() {
-            dataGridViewFones.Rows.Clear();
-            for (int i = 0; i < contato.Fones.Count; i++) {
-                dataGridViewFones.Rows.Add(contato.Fones[i].Numero, contato.Fones[i].Tipo);
-            }
         }
     }
 }
