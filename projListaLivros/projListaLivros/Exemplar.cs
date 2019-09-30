@@ -30,6 +30,7 @@ namespace projListaLivros {
 
             Emprestimos[qtdeEmprestimos() - 1].DtDevolucao = DateTime.Now;
             return true;
+
         }
         public bool disponivel() {
             if (Emprestimos[qtdeEmprestimos() - 1].DtDevolucao != new DateTime(01,01,0001,00,00,00)) return true;
