@@ -38,7 +38,7 @@
             // 
             // buttonGerar
             // 
-            this.buttonGerar.Location = new System.Drawing.Point(93, 30);
+            this.buttonGerar.Location = new System.Drawing.Point(76, 25);
             this.buttonGerar.Name = "buttonGerar";
             this.buttonGerar.Size = new System.Drawing.Size(75, 23);
             this.buttonGerar.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // buttonListarSenhas
             // 
-            this.buttonListarSenhas.Location = new System.Drawing.Point(72, 291);
+            this.buttonListarSenhas.Location = new System.Drawing.Point(49, 275);
             this.buttonListarSenhas.Name = "buttonListarSenhas";
             this.buttonListarSenhas.Size = new System.Drawing.Size(130, 23);
             this.buttonListarSenhas.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // buttonAdicionarGuiche
             // 
-            this.buttonAdicionarGuiche.Location = new System.Drawing.Point(265, 158);
+            this.buttonAdicionarGuiche.Location = new System.Drawing.Point(221, 184);
             this.buttonAdicionarGuiche.Name = "buttonAdicionarGuiche";
             this.buttonAdicionarGuiche.Size = new System.Drawing.Size(75, 23);
             this.buttonAdicionarGuiche.TabIndex = 2;
@@ -68,9 +68,9 @@
             // 
             // buttonChamar
             // 
-            this.buttonChamar.Location = new System.Drawing.Point(522, 30);
+            this.buttonChamar.Location = new System.Drawing.Point(488, 25);
             this.buttonChamar.Name = "buttonChamar";
-            this.buttonChamar.Size = new System.Drawing.Size(93, 23);
+            this.buttonChamar.Size = new System.Drawing.Size(106, 23);
             this.buttonChamar.TabIndex = 3;
             this.buttonChamar.Text = "Chamar";
             this.buttonChamar.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             // 
             // buttonListarAtendimentos
             // 
-            this.buttonListarAtendimentos.Location = new System.Drawing.Point(455, 291);
+            this.buttonListarAtendimentos.Location = new System.Drawing.Point(406, 275);
             this.buttonListarAtendimentos.Name = "buttonListarAtendimentos";
             this.buttonListarAtendimentos.Size = new System.Drawing.Size(160, 23);
             this.buttonListarAtendimentos.TabIndex = 4;
@@ -90,9 +90,9 @@
             // 
             this.labelTituloQuantidadeGuiches.AllowDrop = true;
             this.labelTituloQuantidadeGuiches.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelTituloQuantidadeGuiches.Location = new System.Drawing.Point(263, 31);
+            this.labelTituloQuantidadeGuiches.Location = new System.Drawing.Point(219, 62);
             this.labelTituloQuantidadeGuiches.Name = "labelTituloQuantidadeGuiches";
-            this.labelTituloQuantidadeGuiches.Size = new System.Drawing.Size(78, 86);
+            this.labelTituloQuantidadeGuiches.Size = new System.Drawing.Size(78, 78);
             this.labelTituloQuantidadeGuiches.TabIndex = 5;
             this.labelTituloQuantidadeGuiches.Text = "Quantidade Guichês";
             this.labelTituloQuantidadeGuiches.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,7 +101,7 @@
             // 
             this.labelQuantidadeGuiches.AutoSize = true;
             this.labelQuantidadeGuiches.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQuantidadeGuiches.Location = new System.Drawing.Point(292, 112);
+            this.labelQuantidadeGuiches.Location = new System.Drawing.Point(247, 131);
             this.labelQuantidadeGuiches.Name = "labelQuantidadeGuiches";
             this.labelQuantidadeGuiches.Size = new System.Drawing.Size(24, 26);
             this.labelQuantidadeGuiches.TabIndex = 6;
@@ -110,7 +110,7 @@
             // labelGuiche
             // 
             this.labelGuiche.AutoSize = true;
-            this.labelGuiche.Location = new System.Drawing.Point(407, 35);
+            this.labelGuiche.Location = new System.Drawing.Point(373, 30);
             this.labelGuiche.Name = "labelGuiche";
             this.labelGuiche.Size = new System.Drawing.Size(44, 13);
             this.labelGuiche.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             // textBoxGuiche
             // 
-            this.textBoxGuiche.Location = new System.Drawing.Point(458, 32);
+            this.textBoxGuiche.Location = new System.Drawing.Point(424, 27);
             this.textBoxGuiche.Name = "textBoxGuiche";
             this.textBoxGuiche.Size = new System.Drawing.Size(58, 20);
             this.textBoxGuiche.TabIndex = 8;
@@ -126,15 +126,15 @@
             // listBoxSenhas
             // 
             this.listBoxSenhas.FormattingEnabled = true;
-            this.listBoxSenhas.Location = new System.Drawing.Point(12, 62);
+            this.listBoxSenhas.Location = new System.Drawing.Point(12, 57);
             this.listBoxSenhas.Name = "listBoxSenhas";
-            this.listBoxSenhas.Size = new System.Drawing.Size(245, 212);
+            this.listBoxSenhas.Size = new System.Drawing.Size(201, 212);
             this.listBoxSenhas.TabIndex = 9;
             // 
             // listBoxAtendimentos
             // 
             this.listBoxAtendimentos.FormattingEnabled = true;
-            this.listBoxAtendimentos.Location = new System.Drawing.Point(347, 62);
+            this.listBoxAtendimentos.Location = new System.Drawing.Point(305, 57);
             this.listBoxAtendimentos.Name = "listBoxAtendimentos";
             this.listBoxAtendimentos.Size = new System.Drawing.Size(343, 212);
             this.listBoxAtendimentos.TabIndex = 10;
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 326);
+            this.ClientSize = new System.Drawing.Size(661, 318);
             this.Controls.Add(this.listBoxAtendimentos);
             this.Controls.Add(this.listBoxSenhas);
             this.Controls.Add(this.textBoxGuiche);

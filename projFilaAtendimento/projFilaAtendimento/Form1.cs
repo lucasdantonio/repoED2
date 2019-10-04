@@ -40,6 +40,8 @@ namespace projFilaAtendimento {
             listBoxSenhas.Items.Clear();
 
             if (listaSenhas.FilaSenhas.Count >= 1) {
+
+                listBoxSenhas.Items.Add("Senha\t| \tGerado");
                 foreach (Senha s in listaSenhas.FilaSenhas) {
                     listBoxSenhas.Items.Add(s.dadosParciais());
                 }
@@ -66,6 +68,8 @@ namespace projFilaAtendimento {
             listBoxAtendimentos.Items.Clear();
 
             if (guiche.Atendimentos.Count >= 1) {
+
+                listBoxAtendimentos.Items.Add("Senha\t|   \tGerado\t\t| \tAtendimento");
                 foreach (Senha s in guiche.Atendimentos) {
                     listBoxAtendimentos.Items.Add(s.dadosCompletos());
                 }

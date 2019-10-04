@@ -22,8 +22,12 @@ namespace projFilaAtendimento.model {
         }
         public bool chamar(Queue<Senha> filaSenhas) {
             if (filaSenhas.Count > 0) {
+                filaSenhas.First().DataAtend = DateTime.Now;
+                filaSenhas.First().HoraAtend = DateTime.Now;
+
                 Atendimentos.Enqueue(filaSenhas.First());
                 filaSenhas.Dequeue();
+
                 return true;
             } else return false;
         }

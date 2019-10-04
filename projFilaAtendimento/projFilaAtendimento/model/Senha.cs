@@ -25,14 +25,14 @@ namespace projFilaAtendimento.model {
         public DateTime HoraAtend { get => horaAtend; set => horaAtend = value; }
 
         public string dadosParciais() {
-            return "Senha: " + Id + " >> " 
+            return "    " + Id + "\t|    "
                 + DataGerac.ToString("dd/MM/yyyy") + " - "
                 + HoraGerac.ToString("HH:mm:ss");
         }
         public string dadosCompletos() {
-            return "Senha: " + Id + " >> "
+            return "    " + Id + "\t|     "
                 + DataGerac.ToString("dd/MM/yyyy") + " - "
-                + HoraGerac.ToString("HH:mm:ss") + " | "
+                + HoraGerac.ToString("HH:mm:ss") + "\t|       "
                 + DataAtend.ToString("dd/MM/yyyy") + " - "
                 + HoraAtend.ToString("HH:mm:ss");
         }
