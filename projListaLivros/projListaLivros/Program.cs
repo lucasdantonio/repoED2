@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace projListaLivros {
     class Program {
@@ -14,6 +15,7 @@ namespace projListaLivros {
         static void Main(string[] args) {
             Program p = new Program();
             p.carregaMenu();
+                
         }
         private void exibeMenu() {
             Console.WriteLine(
@@ -155,17 +157,10 @@ namespace projListaLivros {
 
                     // Emprestimos realizados do Exemplar
                     foreach (Emprestimo emprestimo in ex.Emprestimos) {
-
-                        if (emprestimo.DtDevolucao.Equals(new DateTime(01, 01, 0001, 00, 00, 00)))
-                            Console.WriteLine(
-                                "\t - Data de empréstimo: " + emprestimo.DtEmprestimo.ToString() +
-                                " | Data de devolução: Pendente"
-                                );
-                        else
-                            Console.WriteLine(
-                                "\t - Data de empréstimo: " + emprestimo.DtEmprestimo.ToString() +
-                                " | Data de devolução: " + emprestimo.DtDevolucao.ToString()
-                                );
+                        Console.Write("\t - Data de empréstimo: " + emprestimo.DtEmprestimo.ToString() 
+                            + (emprestimo.DtDevolucao.Equals(new DateTime(01,01,0001,00,00,00)) ? 
+                            " | Data de devolução: Pendente" : 
+                            " | Data de devolução: " + emprestimo.DtDevolucao.ToString()));
                     }
                 }
  

@@ -5,3 +5,6 @@ C:\Users\Resource\source\repos\projListaLivros\projListaLivros\bin\Debug\projLis
 C:\Users\Resource\source\repos\projListaLivros\projListaLivros\bin\Debug\projListaLivros.pdb
 C:\Users\Resource\source\repos\projListaLivros\projListaLivros\obj\Debug\projListaLivros.exe
 C:\Users\Resource\source\repos\projListaLivros\projListaLivros\obj\Debug\projListaLivros.pdb
+C:\Users\Resource\source\repos\projListaLivros\projListaLivros\obj\Debug\projListaLivros.FormBiblioteca.resources
+C:\Users\Resource\source\repos\projListaLivros\projListaLivros\obj\Debug\projListaLivros.csproj.GenerateResource.cache
+C:\Users\Resource\source\repos\projListaLivros\projListaLivros\obj\Debug\projListaLivros.Properties.Resources.resources
