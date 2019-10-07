@@ -25,7 +25,8 @@ namespace projFilaAtendimento.model {
                 filaSenhas.First().DataAtend = DateTime.Now;
                 filaSenhas.First().HoraAtend = DateTime.Now;
 
-                Atendimentos.Enqueue(filaSenhas.First());
+                Atendimentos.Enqueue(filaSenhas.Peek());
+                
                 filaSenhas.Dequeue();
 
                 return true;

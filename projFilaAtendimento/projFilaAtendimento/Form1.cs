@@ -19,12 +19,10 @@ namespace projFilaAtendimento {
         private int numChamaGuiche;
 
         private Senhas listaSenhas;
-        private Senha senha;
-        private int numSenha;
 
         public FormAtendimento() {
             InitializeComponent();
-            numGuiche = 0; numSenha = 1;
+            numGuiche = 0;
             listaSenhas = new Senhas();
             listaGuiches = new Guiches();
             guiche = new Guiche();
@@ -40,8 +38,9 @@ namespace projFilaAtendimento {
             listBoxSenhas.Items.Clear();
 
             if (listaSenhas.FilaSenhas.Count >= 1) {
-
-                listBoxSenhas.Items.Add("Senha\t| \tGerado");
+                listBoxSenhas.Items.Add("--------------------------------------------------------------");
+                listBoxSenhas.Items.Add("  Senha\t| \tGerado");
+                listBoxSenhas.Items.Add("--------------------------------------------------------------");
                 foreach (Senha s in listaSenhas.FilaSenhas) {
                     listBoxSenhas.Items.Add(s.dadosParciais());
                 }
@@ -50,8 +49,8 @@ namespace projFilaAtendimento {
 
         private void ButtonAdicionarGuiche_Click(object sender, EventArgs e) {
             // Adicionar Guichê
-            listaGuiches.adicionar(new Guiche(numSenha));
-            numGuiche += 1; ++numSenha;
+            listaGuiches.adicionar(new Guiche(numGuiche));
+            numGuiche += 1;
 
             labelQuantidadeGuiches.Text = numGuiche.ToString();
         }
@@ -59,21 +58,31 @@ namespace projFilaAtendimento {
         private void ButtonChamar_Click(object sender, EventArgs e) {
             // Chamar Senha para tal Guichê
             numChamaGuiche = int.Parse(textBoxGuiche.Text);
+            Guiche gAchou = listaGuiches.ListaGuiches.Find(ga => ga.Id == --numChamaGuiche);
 
-            guiche.chamar(listaSenhas.FilaSenhas);            
+            if (gAchou != null) gAchou.chamar(listaSenhas.FilaSenhas);
+            else MessageBox.Show("Este Guiche não existe!");           
         }
 
         private void ButtonListarAtendimentos_Click(object sender, EventArgs e) {
             // Listar Atendimentos
             listBoxAtendimentos.Items.Clear();
+ 
+            if (listaGuiches.ListaGuiches.FindAll(ga => ga.Atendimentos.Count >= 1).Count >= 1) {
+                listBoxAtendimentos.Items.Add("--------------------------------------------------------------------------------------------------------------");
+                listBoxAtendimentos.Items.Add("  Senha\t|   \tGerado\t\t| \tAtendimento ");
+                listBoxAtendimentos.Items.Add("--------------------------------------------------------------------------------------------------------------");
+                foreach (Guiche g in listaGuiches.ListaGuiches) {
 
-            if (guiche.Atendimentos.Count >= 1) {
-
-                listBoxAtendimentos.Items.Add("Senha\t|   \tGerado\t\t| \tAtendimento");
-                foreach (Senha s in guiche.Atendimentos) {
-                    listBoxAtendimentos.Items.Add(s.dadosCompletos());
+                    foreach (Senha s in g.Atendimentos) {
+                        listBoxAtendimentos.Items.Add(s.dadosCompletos());
+                    }
+               
                 }
-            } else listBoxAtendimentos.Items.Add("Lista de Atendimentos Vazia");
+            } else {
+                listBoxAtendimentos.Items.Add("Lista de Atendimentos Vazia");
+            }
+
         }
     }
 }
