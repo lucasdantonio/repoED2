@@ -49,16 +49,16 @@ namespace projFilaAtendimento {
 
         private void ButtonAdicionarGuiche_Click(object sender, EventArgs e) {
             // Adicionar Guichê
+            numGuiche = numGuiche + 1;
             listaGuiches.adicionar(new Guiche(numGuiche));
-            numGuiche += 1;
-
+            
             labelQuantidadeGuiches.Text = numGuiche.ToString();
         }
 
         private void ButtonChamar_Click(object sender, EventArgs e) {
             // Chamar Senha para tal Guichê
             numChamaGuiche = int.Parse(textBoxGuiche.Text);
-            Guiche gAchou = listaGuiches.ListaGuiches.Find(ga => ga.Id == --numChamaGuiche);
+            Guiche gAchou = listaGuiches.ListaGuiches.Find(ga => ga.Id == numChamaGuiche);
 
             if (gAchou != null) gAchou.chamar(listaSenhas.FilaSenhas);
             else MessageBox.Show("Este Guiche não existe!");           
@@ -67,18 +67,16 @@ namespace projFilaAtendimento {
         private void ButtonListarAtendimentos_Click(object sender, EventArgs e) {
             // Listar Atendimentos
             listBoxAtendimentos.Items.Clear();
- 
-            if (listaGuiches.ListaGuiches.FindAll(ga => ga.Atendimentos.Count >= 1).Count >= 1) {
+
+            if (listaGuiches.ListaGuiches[int.Parse(textBoxGuiche.Text) - 1].Atendimentos.Count >= 1) { 
                 listBoxAtendimentos.Items.Add("--------------------------------------------------------------------------------------------------------------");
                 listBoxAtendimentos.Items.Add("  Senha\t|   \tGerado\t\t| \tAtendimento ");
                 listBoxAtendimentos.Items.Add("--------------------------------------------------------------------------------------------------------------");
-                foreach (Guiche g in listaGuiches.ListaGuiches) {
 
-                    foreach (Senha s in g.Atendimentos) {
+                    foreach (Senha s in listaGuiches.ListaGuiches[int.Parse(textBoxGuiche.Text) - 1].Atendimentos) {
                         listBoxAtendimentos.Items.Add(s.dadosCompletos());
                     }
                
-                }
             } else {
                 listBoxAtendimentos.Items.Add("Lista de Atendimentos Vazia");
             }
